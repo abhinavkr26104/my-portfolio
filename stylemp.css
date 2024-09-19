@@ -1,0 +1,141 @@
+/* Ensure the body and html take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.tc {
+    height: 700px; /* Adjust as needed */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers children vertically */
+    align-items: center;     /* Centers children horizontally */
+    position: relative;
+    text-align: center;      /* Center-aligns text inside .tc */
+    margin-bottom: 0; /* Remove space between profile and skills */
+}
+
+.dp {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;       /* Ensures the image fits within the circle */
+    margin-bottom: 20px;    /* Adds space between the image and text */
+}
+
+h2 {
+    color: #66bfbf;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin: 0;              /* Removes default margin */
+    padding-bottom: 10px;
+}
+
+.intro {
+    font-size: 30px;
+    width: 70%;              /* Adjust width as needed */
+    margin: 0 auto;         /* Centers the .intro block itself */
+}
+
+/* Skills Section */
+.skills {
+    width: 100%; 
+    padding: 20px; /* Add padding inside the section */
+    margin: 0 auto; /* Remove top margin and center horizontally */
+    max-width: 800px; /* Optional: Set max-width to constrain the section on larger screens */
+    text-align: center; /* Center-align text inside .skills */
+}
+
+.skills h3 {
+    font-size: 40px;
+    color: #66bfbf; /* Matches the profile header color */
+    margin-bottom: 15px;
+    font-family: "Montserrat", sans-serif; /* Consistent font with profile */
+}
+
+.skills ul {
+    font-size: 30px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills ul li {
+    font-size: 1.2rem;
+    color: #333; /* Dark text for readability */
+    margin-bottom: 10px; /* Space between skills */
+}
+
+.skills ul li::before {
+    content: "•"; /* Bullet point for each skill */
+    color: #66bfbf; /* Matches the profile header color */
+    margin-right: 8px; /* Space between bullet and skill text */
+}
+
+/* Custom Footer Styles */
+.custom-footer {
+    display: flex;
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center; /* Vertically center items */
+    background-color: #f8f9fa; /* Light background for the footer */
+    color: #6c757d; /* Text color */
+    padding: 20px; /* Add padding around the footer */
+}
+
+.custom-footer .col-md-4 {
+    display: flex;
+    align-items: center; /* Center items vertically in this column */
+}
+
+.custom-footer .col-md-4 a {
+    color: #6c757d; /* Link color */
+    text-decoration: none;
+    margin-right: 10px; /* Space between logo and text */
+}
+
+.custom-footer .nav {
+    display: flex;
+    align-items: center; /* Center items vertically in the nav */
+    gap: 15px; /* Space between social links */
+}
+
+.custom-footer .nav a {
+    color: #6c757d; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth transition on hover */
+}
+
+.custom-footer .nav a:hover {
+    color: #000; /* Darker color on hover */
+}
+
+.custom-footer .bi {
+    fill: currentColor; /* Ensure SVG icons inherit text color */
+}
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+    gap: 20px; /* Space between columns */
+    justify-items: center; /* Center the items horizontally */
+    align-items: start; /* Align items vertically */
+    text-align: center; /* Center text inside each column */
+}
+
+/* For small screens, stack them vertically */
+@media (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 20px;
+    }
+}
+.image01
+{
+    height: 40px;
+    width: 40px;
+}
+.container
+{
+    padding-top: 100px;
+}

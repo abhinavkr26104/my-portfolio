@@ -1,0 +1,42 @@
+.header {
+    height: 700px;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Allows absolute positioning inside the header */
+}
+.pro {
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.p1 {
+    padding-top: 20px;
+    font-size: 100px;
+    color: azure;
+    margin-bottom: 0;
+}
+
+.p2 {
+    font-size: 50px;
+    color: white;
+    padding-left: 30px;
+    margin-top: 30px;
+}
+
+.image1 {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 50px; /* If you want it relative to the header, adjust this value accordingly */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts for image width to perfectly center */
+}
+.programmer
+{
+    color: white;
+}
