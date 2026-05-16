@@ -3,458 +3,566 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abhinav Kumar Singh | Software Engineer</title>
-  <meta name="description" content="Abhinav Kumar Singh – Java Backend Engineer, Competitive Programmer, CS Undergraduate." />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+  <title>Abhinav Kumar Singh</title>
+  <meta name="description" content="Abhinav Kumar Singh – Java Backend Engineer, Competitive Programmer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,600;1,9..40,200&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #020617;
-      --bg-2: #020617ee;
-      --glass: rgba(15,23,42,0.65);
-      --primary: #38bdf8;
-      --secondary: #22c55e;
-      --accent: #facc15;
-      --pink: #ec4899;
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --border: rgba(148,163,184,0.15);
-      --radius: 22px;
+      --bg: #f5f2ed;
+      --ink: #1a1714;
+      --muted: #7a7570;
+      --rule: #d4cfc9;
+      --accent: #c0392b;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background:
-        radial-gradient(1000px 500px at 10% -10%, rgba(56,189,248,0.18), transparent),
-        radial-gradient(800px 400px at 90% 10%, rgba(236,72,153,0.14), transparent),
-        radial-gradient(600px 300px at 50% 100%, rgba(34,197,94,0.14), transparent),
-        var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    /* Animated particles */
-    canvas#particles {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 4rem 1.5rem 5rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--glass);
-      backdrop-filter: blur(14px);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.5rem 0.8rem;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      z-index: 5;
+      padding: 0 3rem;
+      height: 52px;
     }
 
-    .nav-left {
-      display: flex;
-      gap: 0.8rem;
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
-    .nav-right {
+    .nav-links {
       display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem 8rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: 130px;
+      padding-bottom: 72px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: var(--sans);
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 200;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 strong {
+      font-weight: 600;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 520px;
+      font-weight: 400;
+      margin-bottom: 2.2rem;
+      line-height: 1.7;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
       gap: 0.6rem;
     }
 
-    .nav-btn {
-      font-size: 0.8rem;
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      border: 1px solid var(--border);
-      transition: all 0.25s ease;
-    }
-
-    .nav-btn.linkedin {
-      background: rgba(56,189,248,0.15);
-    }
-
-    .nav-btn.github {
-      background: rgba(148,163,184,0.12);
-    }
-
-    .nav-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(56,189,248,0.25);
-    }
-
-    nav a {
-      font-size: 0.85rem;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
+    .link-pill {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
       color: var(--muted);
-      transition: all 0.25s ease;
+      transition: all 0.2s;
+      text-transform: uppercase;
     }
 
-    nav a:hover { background: rgba(56,189,248,0.15); color: var(--text); }
-
-    /* HERO */
-    header {
-      margin-top: 6rem;
-      margin-bottom: 6rem;
+    .link-pill:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: white;
     }
 
-    .hero {
+    /* ── RATINGS STRIP ── */
+    .ratings {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2.5rem;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--rule);
     }
 
-    .hero-left h1 {
-      font-size: 3.6rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      line-height: 1.05;
-      background: linear-gradient(90deg, #e5e7eb, #38bdf8, #ec4899);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .rating-cell {
+      padding: 2rem 0;
+      border-right: 1px solid var(--rule);
     }
 
-    .hero-left h2 {
-      font-size: 1.35rem;
+    .rating-cell:last-child { border-right: none; }
+
+    .rating-cell:not(:first-child) { padding-left: 2rem; }
+
+    .rating-platform {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--muted);
-      margin: 1rem 0 1.5rem;
-      max-width: 560px;
+      margin-bottom: 0.5rem;
     }
 
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 0.8rem 1.4rem;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #020617;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .btn.secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-    }
-
-    .hero-right {
-      background: linear-gradient(180deg, rgba(15,23,42,0.85), rgba(2,6,23,0.9));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat strong {
-      font-size: 2.4rem;
-      display: block;
-      color: var(--accent);
-    }
-
-    .stat span { font-size: 0.9rem; color: var(--muted); }
-
-    section { margin-bottom: 6rem; }
-
-    section h3 {
+    .rating-value {
       font-size: 2.2rem;
-      margin-bottom: 2rem;
-      position: relative;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--ink);
     }
 
-    section h3::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -10px;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--pink));
-      border-radius: 4px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(15,23,42,0.85), rgba(2,6,23,0.95));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.4s ease;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(300px 150px at 80% -20%, rgba(56,189,248,0.25), transparent);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .card:hover::before { opacity: 1; }
-    .card:hover { transform: translateY(-8px); }
-
-    .card h4 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-    .meta { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; }
-
-    footer {
-      text-align: center;
+    .rating-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
       color: var(--muted);
-      font-size: 0.85rem;
+      margin-top: 0.3rem;
     }
 
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      nav { display: none; }
+    /* ── SECTIONS ── */
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .sec-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .sec-num {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .sec-title {
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink);
+    }
+
+    /* ── ABOUT ── */
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--ink);
+      font-weight: 300;
+      max-width: 620px;
+    }
+
+    .about-text strong { font-weight: 600; }
+
+    /* ── SKILLS ── */
+    .skill-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .skill-row:first-child { border-top: 1px solid var(--rule); }
+
+    .skill-cat {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .skill-items {
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    /* ── PROJECTS ── */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .project {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .project:first-child { border-top: 1px solid var(--rule); }
+
+    .project-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-stack {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .project-year {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 0.25rem;
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    .ach-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ach-item {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+
+    .ach-item:first-child { border-top: 1px solid var(--rule); }
+
+    .ach-idx {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    .ach-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding-top: 3rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.2rem; }
+      .page { padding: 0 1.2rem 6rem; }
+      .ratings { grid-template-columns: 1fr; }
+      .rating-cell { border-right: none; border-bottom: 1px solid var(--rule); padding-left: 0 !important; }
+      .rating-cell:last-child { border-bottom: none; }
+      .project { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .skill-row { grid-template-columns: 110px 1fr; }
     }
   </style>
 </head>
 <body>
 
-<canvas id="particles"></canvas>
-
 <nav>
-  <div class="nav-left">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#achievements">Achievements</a>
-  </div>
-  
+  <span class="nav-logo">AKS</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+  </ul>
 </nav>
 
-<div class="container">
+<div class="page">
 
-<header>
-  <div class="hero">
-    <div class="hero-left">
-      <h1 class="reveal">Abhinav Kumar Singh</h1>
-      <h2 class="reveal">Java Backend Engineer focused on scalable systems, competitive programming, and clean architecture.</h2>
-      <div class="hero-cta reveal">
-        <a class="btn" href="https://www.linkedin.com/in/abhinav-kumar-singh-05ab16291/" target="_blank"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
-        <a class="btn secondary" href="https://github.com/abhinavkr26104" target="_blank"><i class="ph ph-github-logo"></i> GitHub</a>
-        <a class="btn secondary" href="https://leetcode.com/u/uloAy9iMYm" target="_blank"><i class="ph ph-code"></i> LeetCode</a>
-        <a class="btn secondary" href="https://www.geeksforgeeks.org/user/abhinavkrsoj5t" target="_blank"><i class="ph ph-brackets-curly"></i> GFG</a>
-        <a class="btn secondary" href="https://www.codechef.com/users/abhinav_26104" target="_blank"><i class="ph ph-fire"></i> CodeChef</a>
-        <a class="btn secondary" href="https://codeforces.com/profile/abhinav_26104" target="_blank"><i class="ph ph-lightning"></i> Codeforces</a>
+  <!-- HERO -->
+  <div class="hero fade-in">
+    <p class="hero-tag">B.Tech CS · BIT Bangalore · 2023–2027</p>
+    <h1>Abhinav<br><strong>Kumar Singh</strong></h1>
+    <p class="hero-sub">Java Backend Engineer focused on scalable systems, competitive programming, and clean architecture. CGPA 8.8.</p>
+    <div class="hero-links">
+      <a class="link-pill" href="https://www.linkedin.com/in/abhinav-kumar-singh-05ab16291/" target="_blank">LinkedIn</a>
+      <a class="link-pill" href="https://github.com/abhinavkr26104" target="_blank">GitHub</a>
+      <a class="link-pill" href="https://leetcode.com/u/uloAy9iMYm" target="_blank">LeetCode</a>
+      <a class="link-pill" href="https://www.geeksforgeeks.org/user/abhinavkrsoj5t" target="_blank">GFG</a>
+      <a class="link-pill" href="https://www.codechef.com/users/abhinav_26104" target="_blank">CodeChef</a>
+      <a class="link-pill" href="https://codeforces.com/profile/abhinav_26104" target="_blank">Codeforces</a>
+      <a class="link-pill" href="mailto:abhinav.kr.singh.2610@gmail.com">Email</a>
+    </div>
+  </div>
+
+  <!-- RATINGS -->
+  <div class="ratings fade-in">
+    <div class="rating-cell">
+      <p class="rating-platform">LeetCode</p>
+      <p class="rating-value">1882</p>
+      <p class="rating-label">Peak Rating</p>
+    </div>
+    <div class="rating-cell">
+      <p class="rating-platform">CodeChef</p>
+      <p class="rating-value">1656</p>
+      <p class="rating-label">3★ Rating</p>
+    </div>
+    <div class="rating-cell">
+      <p class="rating-platform">Codeforces</p>
+      <p class="rating-value">1561</p>
+      <p class="rating-label">Specialist</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-header fade-in">
+      <span class="sec-num">01</span>
+      <span class="sec-title">About</span>
+    </div>
+    <p class="about-text fade-in">
+      Computer Science undergraduate at <strong>Bangalore Institute of Technology</strong> with a primary focus on <strong>Java backend development</strong> and competitive programming. I build clean, scalable backend systems using the <strong>Spring ecosystem</strong> — Spring Boot, JPA, Hibernate — with <strong>MySQL</strong> and <strong>MongoDB</strong>. Active on competitive programming platforms and have mentored 200+ juniors in DSA and programming fundamentals.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-header fade-in">
+      <span class="sec-num">02</span>
+      <span class="sec-title">Skills</span>
+    </div>
+    <div class="skill-rows">
+      <div class="skill-row fade-in">
+        <span class="skill-cat">Languages</span>
+        <span class="skill-items">Java (Core & Advanced), Python, C</span>
+      </div>
+      <div class="skill-row fade-in">
+        <span class="skill-cat">Frameworks</span>
+        <span class="skill-items">Spring Boot, Spring MVC, Spring Data JPA, Spring Security, Hibernate, JDBC, Servlet/JSP</span>
+      </div>
+      <div class="skill-row fade-in">
+        <span class="skill-cat">Databases</span>
+        <span class="skill-items">MySQL, MongoDB</span>
+      </div>
+      <div class="skill-row fade-in">
+        <span class="skill-cat">Architecture</span>
+        <span class="skill-items">RESTful APIs, Microservices</span>
+      </div>
+      <div class="skill-row fade-in">
+        <span class="skill-cat">CS Core</span>
+        <span class="skill-items">DSA, OOP, DBMS, Operating Systems, Computer Networks</span>
+      </div>
+      <div class="skill-row fade-in">
+        <span class="skill-cat">Tools</span>
+        <span class="skill-items">Git, GitHub, Postman, JUnit</span>
       </div>
     </div>
+  </section>
 
-    <div class="hero-right reveal">
-      <div class="hero-stats">
-        <div class="stat"><strong>449+</strong><span>Problems Solved</span></div>
-        <div class="stat"><strong>1736</strong><span>LeetCode Rating</span></div>
-        <div class="stat"><strong>37</strong><span>Contests</span></div>
-        <div class="stat"><strong>158</strong><span>Active Days</span></div>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-header fade-in">
+      <span class="sec-num">03</span>
+      <span class="sec-title">Projects</span>
+    </div>
+    <div class="project-list">
+
+      <div class="project fade-in">
+        <div>
+          <p class="project-title">Heart Disease Predictor</p>
+          <p class="project-stack">PyTorch · Flask · Streamlit</p>
+          <p class="project-desc">Deep learning web app for heart disease prediction trained on 918 patient records. Achieved 89.67% accuracy using a feedforward neural network with preprocessing, feature scaling, and REST-based real-time prediction.</p>
+        </div>
+        <span class="project-year">2026</span>
+      </div>
+
+      <div class="project fade-in">
+        <div>
+          <p class="project-title">Intrusion Detection System</p>
+          <p class="project-stack">Python · Networking · Security</p>
+          <p class="project-desc">Built an IDS to detect malicious users and suspicious activity in web applications. Implements traffic monitoring, anomaly detection, and alert generation for abnormal request patterns.</p>
+        </div>
+        <span class="project-year">2026</span>
+      </div>
+
+      <div class="project fade-in">
+        <div>
+          <p class="project-title">Job Hiring Platform</p>
+          <p class="project-stack">Spring Boot · MongoDB · REST APIs</p>
+          <p class="project-desc">Backend for managing job postings, applications, and candidate profiles. RESTful APIs for recruiters and applicants to create, update, and retrieve hiring data with MongoDB for efficient document storage.</p>
+        </div>
+        <span class="project-year">2025</span>
+      </div>
+
+      <div class="project fade-in">
+        <div>
+          <p class="project-title">Corporate Car Pooling System</p>
+          <p class="project-stack">Hackathon · Backend</p>
+          <p class="project-desc">Developed backend logic for ride allocation and user management under hackathon constraints. Finalist among 150+ teams at I-Solve Traffic Police Hackathon 2024.</p>
+        </div>
+        <span class="project-year">2024</span>
+      </div>
+
+      <div class="project fade-in">
+        <div>
+          <p class="project-title">Event Management System</p>
+          <p class="project-stack">Spring Boot · MySQL</p>
+          <p class="project-desc">Complete CRUD operations with normalized relational schema design for event and participant management.</p>
+        </div>
+        <span class="project-year">2024</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="sec-header fade-in">
+      <span class="sec-num">04</span>
+      <span class="sec-title">Achievements</span>
+    </div>
+    <div class="ach-list">
+      <div class="ach-item fade-in">
+        <span class="ach-idx">01</span>
+        <span class="ach-text">546+ coding problems solved across LeetCode, CodeChef, Codeforces, GFG, and HackerRank</span>
+      </div>
+      <div class="ach-item fade-in">
+        <span class="ach-idx">02</span>
+        <span class="ach-text">LeetCode peak rating <strong>1882</strong> · CodeChef 3★ (<strong>1656</strong>) · Codeforces <strong>Specialist (1561)</strong></span>
+      </div>
+      <div class="ach-item fade-in">
+        <span class="ach-idx">03</span>
+        <span class="ach-text">Runner-Up at Ideaverse 2025 – Ghumo India</span>
+      </div>
+      <div class="ach-item fade-in">
+        <span class="ach-idx">04</span>
+        <span class="ach-text">Finalist at I-Solve Traffic Police Hackathon 2024 — among 150+ competing teams</span>
+      </div>
+      <div class="ach-item fade-in">
+        <span class="ach-idx">05</span>
+        <span class="ach-text">Mentored 200+ juniors in DSA and competitive programming fundamentals</span>
       </div>
     </div>
-  </div>
-</header>
+  </section>
 
-<section id="about">
-  <h3>About Me</h3>
-  <div class="cards">
-    <div class="card reveal">
-      <p>
-        Computer Science undergraduate at <strong>Bangalore Institute of Technology</strong> with a primary focus on <strong>Java backend development</strong> and competitive programming. I enjoy building clean, scalable backend systems and strengthening problem‑solving skills through consistent DSA practice.
-      </p>
-      <br />
-      <p>
-        Experienced with the <strong>Spring ecosystem</strong> (Spring Boot, JPA, Hibernate) and working with <strong>MySQL</strong> and <strong>MongoDB</strong>. Actively participate in coding contests and mentor juniors in programming fundamentals.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-
-<section id="skills">
-  <h3>Skills</h3>
-  <div class="cards">
-    <div class="card reveal"><h4>Languages</h4><p>Java, C, Python</p></div>
-    <div class="card reveal"><h4>Backend</h4><p>Spring Boot, Spring MVC, Spring Data JPA, Hibernate</p></div>
-    <div class="card reveal"><h4>Databases</h4><p>MySQL, MongoDB</p></div>
-    <div class="card reveal"><h4>Tools</h4><p>Git, GitHub, Postman, JUnit</p></div>
-  </div>
-</section>
-
-<section id="projects">
-  <h3>Projects</h3>
-  <div class="cards">
-    <div class="card reveal">
-      <h4>Job Hiring Platform</h4>
-      <div class="meta">Spring Boot · MongoDB · REST APIs | 2025</div>
-      <ul>
-        <li>Built REST APIs for job postings and candidate management</li>
-        <li>Used MongoDB for flexible, document‑based storage</li>
-        <li>Focused on clean architecture and maintainable code</li>
-      </ul>
-    </div>
-
-    <div class="card reveal">
-      <h4>Corporate Car Pooling System</h4>
-      <div class="meta">I-Solve Hackathon Finalist | 2024</div>
-      <ul>
-        <li>Developed backend logic for ride allocation and users</li>
-        <li>Worked in a team under hackathon constraints</li>
-        <li>Finalist among 150+ teams</li>
-      </ul>
-    </div>
-
-    <div class="card reveal">
-      <h4>Event Management System</h4>
-      <div class="meta">CRUD Mini Project · MySQL | 2024</div>
-      <ul>
-        <li>Implemented complete CRUD operations</li>
-        <li>Designed normalized relational schemas</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="achievements">
-  <h3>Achievements & Involvement</h3>
-  <div class="cards">
-    <div class="card reveal">
-      <h4>Competitive Programming</h4>
-      <ul>
-        <li>300+ LeetCode problems solved (1700+ peak rating)</li>
-        <li>100+ problems solved on GeeksforGeeks</li>
-        <li>Active on CodeChef, Codeforces, AtCoder</li>
-      </ul>
-    </div>
-
-    <div class="card reveal">
-      <h4>Hackathons</h4>
-      <ul>
-        <li>I-Solve Traffic Police Hackathon 2024 Finalist</li>
-      </ul>
-    </div>
-
-    <div class="card reveal">
-      <h4>Mentorship</h4>
-      <ul>
-        <li>Mentored 200+ juniors in DSA and programming basics</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2026 Abhinav Kumar Singh · Designed & Built with HTML, CSS, GSAP
-</footer>
+  <footer>
+    <span>© 2026 Abhinav Kumar Singh</span>
+    <span>abhinav.kr.singh.2610@gmail.com</span>
+  </footer>
 
 </div>
 
 <script>
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.from(el, {
-      scrollTrigger: { trigger: el, start: 'top 85%' },
-      y: 60,
-      opacity: 0,
-      duration: 1,
-      ease: 'power4.out'
+  // Scroll-triggered fade-ins
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
     });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 60}ms`;
+    observer.observe(el);
   });
-
-  // Particle background
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  let w, h;
-
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  const particles = Array.from({ length: 60 }, () => ({
-    x: Math.random() * w,
-    y: Math.random() * h,
-    r: Math.random() * 2 + 0.5,
-    dx: (Math.random() - 0.5) * 0.3,
-    dy: (Math.random() - 0.5) * 0.3
-  }));
-
-  function animate() {
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = 'rgba(148,163,184,0.6)';
-    particles.forEach(p => {
-      p.x += p.dx; p.y += p.dy;
-      if (p.x < 0 || p.x > w) p.dx *= -1;
-      if (p.y < 0 || p.y > h) p.dy *= -1;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
 </script>
 
 </body>
